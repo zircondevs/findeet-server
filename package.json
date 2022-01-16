@@ -1,0 +1,9 @@
+{
+  "name": "findeet-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:zircondevs/findeet-server.git",
+  "author": "Zircon DEVS",
+  "license": "MIT",
+  "private": true
+}
