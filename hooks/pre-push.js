@@ -1,8 +1,4 @@
-// const chalk = require('chalk');
 const { exec } = require('./exec');
-
-// exec('yarn format');
-// exec('yarn lint');
 
 /* The flag commit hash 🚩 */
 const stgUniqCommit = 's76o527m89e9h72619a827s9h038c029o8de',
