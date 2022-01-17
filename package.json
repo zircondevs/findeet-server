@@ -15,7 +15,7 @@
     "hooks:pre-push": "npm run format && npm run lint && npm run && node ./hooks/pre-push.js"
   },
   "husky": {
-    "pre-commit": "hooks:pre-commit",
+    "pre-commit": "npm run lint",
     "pre-push": "npm run format && npm run lint && npm run hooks:pre-push"
   },
   "devDependencies": {
