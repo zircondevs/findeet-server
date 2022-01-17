@@ -15,8 +15,8 @@
     "hooks:pre-push": "node ./hooks/pre-push.js"
   },
   "husky": {
-    "pre-commit": "npm run hooks:pre-commit",
-    "pre-push": "npm run hooks:pre-push"
+    "pre-commit": "npm run format && npm run lint && npm run hooks:pre-commit",
+    "pre-push": "npm run format && npm run lint && npm run hooks:pre-push"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
