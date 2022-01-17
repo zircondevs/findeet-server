@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^5.9.1",
     "chalk": "^5.0.0",
     "eslint": "^8.7.0",
+    "husky": "^7.0.4",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "shelljs": "^0.8.5",
