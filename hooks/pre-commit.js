@@ -3,6 +3,9 @@ const path = require('path');
 const chalk = require('chalk');
 const { exec } = require('./exec');
 
+exec('yarn format');
+exec('yarn lint');
+
 const branchName = exec('git rev-parse --abbrev-ref HEAD', { trim: true });
 // check if this branch already exists in the remote
 const isInRemote =
