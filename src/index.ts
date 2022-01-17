@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import { config as envConfig } from 'dotenv';
 
 envConfig();
-
+var name: string = 'Findeet';
 const app: Express = express();
 
 const port: number = Number(process.env.PORT) || 3000;
