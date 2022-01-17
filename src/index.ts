@@ -2,10 +2,9 @@ import express, { Express } from 'express';
 import { config as envConfig } from 'dotenv';
 
 envConfig();
-const name: string;
-const app: Express = express();
-
-const port: number = Number(process.env.PORT) || 3000;
+var name: string,
+  app: Express = express(),
+  port: number = Number(process.env.PORT) || 3000;
 
 app.listen(port, () => {
   console.log(`Server Running on PORT: ${port} ${name}.`);
