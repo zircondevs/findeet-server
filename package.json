@@ -1,40 +1,53 @@
 {
-  "name": "findeet-server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:zircondevs/findeet-server.git",
-  "author": "Zircon DEVS",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "start:dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "tsc",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts . --fix",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "hooks:pre-commit": "npm run format && npm run lint && npm run && node ./hooks/pre-commit.js",
-    "hooks:pre-push": "npm run format && npm run lint && npm run && node ./hooks/pre-push.js"
-  },
-  "husky": {
-    "pre-commit": "npm run lint",
-    "pre-push": "npm run format && npm run lint && npm run hooks:pre-push"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/node": "^17.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "chalk": "^5.0.0",
-    "eslint": "^8.7.0",
-    "husky": "^7.0.4",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.5.1",
-    "shelljs": "^0.8.5",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^13.0.1",
-    "express": "^4.17.2"
-  }
+    "name": "findeet-server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:zircondevs/findeet-server.git",
+    "author": "Zircon DEVS",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "start": "node build/index",
+        "start:dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
+        "post-build": "cp .env build && cp package.json build && cp yarn.lock build && cd ./build && npm install",
+        "build": "tsc && yarn post-build",
+        "lint": "eslint --ignore-path .eslintignore --ext .js,.ts . --fix",
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+        "hooks:pre-commit": "npm run format && npm run lint && npm run && node ./hooks/pre-commit.js",
+        "hooks:pre-push": "npm run format && npm run lint && npm run && node ./hooks/pre-push.js"
+    },
+    "husky": {
+        "pre-commit": "npm run lint",
+        "pre-push": "npm run format && npm run lint && npm run hooks:pre-push"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/express": "^4.17.13",
+        "@types/joi": "^17.2.3",
+        "@types/jsonwebtoken": "^8.5.8",
+        "@types/node": "^17.0.8",
+        "@types/node-mailjet": "^3.3.8",
+        "@types/uuid": "^8.3.4",
+        "@typescript-eslint/eslint-plugin": "^5.9.1",
+        "@typescript-eslint/parser": "^5.9.1",
+        "chalk": "^5.0.0",
+        "eslint": "^8.7.0",
+        "husky": "^7.0.4",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.5.1",
+        "shelljs": "^0.8.5",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.4"
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
+        "dotenv": "^13.0.1",
+        "express": "^4.17.2",
+        "joi": "^17.5.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.1.6",
+        "node-mailjet": "^3.3.4",
+        "uuid": "^8.3.2"
+    }
 }
