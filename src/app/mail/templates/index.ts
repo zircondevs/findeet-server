@@ -1,6 +1,8 @@
 import defaultTemplate from './default';
-import { templatingEngine as templateEngine } from '../MailTypes';
+import { templateType, templatingEngine as templateEngine } from '../MailTypes';
+import verificationTemplate from './verification';
 
 export const templatingEngine: templateEngine = {
-	default: defaultTemplate,
+    [templateType.default]: defaultTemplate,
+    [templateType.verification]: verificationTemplate,
 };

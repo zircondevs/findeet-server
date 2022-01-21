@@ -1,5 +1,28 @@
 export enum templateType {
     default = 'default',
+    verification = 'verification',
+}
+
+export enum mailContentKeys {
+    EMAIL_VERIFICATION = 'email_verification',
+}
+
+export interface mailContentFormat {
+    text: string;
+    otp: number | string;
+}
+
+export interface mailContents {
+    otp?: number | string;
+    subject: string;
+}
+
+export interface templateSenderPayload {
+    mailType: mailContentKeys;
+    template: templateType;
+    content: mailContents;
+    mailSentFrom: string;
+    recievers: string[];
 }
 
 export interface sendMailPayload {
@@ -7,6 +30,7 @@ export interface sendMailPayload {
     recievers: string[];
     templateType: templateType;
     mailSentFrom: string;
+    content: mailContentFormat;
 }
 
 export interface addressFormat {
@@ -26,7 +50,8 @@ export interface recieverEmailFormatted extends mailGunEmailerFormat {
 }
 
 export interface templatingEngine {
-    default: () => string;
+    [templateType.default](payload: templatesPayload): string;
+    [templateType.verification](payload: templatesPayload): string;
 }
 
 export interface mailjetReponseMessageTo {
@@ -61,4 +86,10 @@ export interface mailModelType {
     status: Status;
     error?: string;
     mailSentFrom: string;
+}
+
+export interface templatesPayload {
+    otp?: string | number;
+    text?: string;
+    name?: string;
 }
